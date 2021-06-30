@@ -1,0 +1,54 @@
+<div class="demo">
+  <mat-grid-list class="demo__grid" cols="2" gutterSize="1rem">
+
+    <mat-grid-tile colspan="1" rowspan="1">
+      <mat-card class="demo__card">
+        <mat-card-header>
+          <mat-card-title>Sources</mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="demo__card-content demo__card-content--small">
+          <mat-action-list class="demo__list" role="list">
+            <mat-list-item *ngFor="let source of sourcesList | async; let i = index" role="listitem">
+              <span>{{ source }}</span>
+            </mat-list-item>
+          </mat-action-list>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="1" rowspan="1">
+      <mat-card class="demo__card">
+        <mat-card-header>
+          <mat-card-title>Dataset</mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="demo__card-content demo__card-content--small">
+          <mat-action-list class="demo__list" role="list">
+            <mat-list-item *ngFor="let data of dataset | async; let i = index" role="listitem">
+              <span>{{ data }}</span>
+            </mat-list-item>
+          </mat-action-list>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="2" rowspan="2">
+      <mat-card class="demo__card">
+        <mat-card-header>
+          <mat-card-title>Matches</mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="demo__card-content">
+          <ng-container *ngIf="matches | async as items; else noContent">
+            <mat-action-list role="list">
+              <mat-list-item *ngFor="let i of items" role="listitem">
+                "{{ i.source }}" matches "{{ i.data }}"
+              </mat-list-item>
+            </mat-action-list>
+          </ng-container>
+          <ng-template #noContent>
+            <h2 class="demo__matches-none">No Matches</h2>
+          </ng-template>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+  </mat-grid-list>

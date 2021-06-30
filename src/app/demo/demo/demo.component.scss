@@ -1,0 +1,38 @@
+:host {
+  height: 100%;
+  width: 100%;
+}
+
+.demo {
+  height: 100%;
+
+  &__grid {
+    margin: 1rem;
+  }
+
+  &__card {
+    height: 100%;
+    width: 100%;
+
+    &-content {
+      height: 90%;
+      overflow: auto;
+
+      &--small {
+        height: 80%;
+      }
+    }
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__matches-none {
+    padding: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
